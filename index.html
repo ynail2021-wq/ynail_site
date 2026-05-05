@@ -1893,7 +1893,7 @@
         LINEからご連絡ください。
       </p>
 
-      <form action="https://formspree.io/f/xqenqqgq" method="POST" enctype="multipart/form-data" onsubmit="handleSubmit(event)">
+      <form action="https://formspree.io/f/xqenqqgq" method="POST" onsubmit="handleSubmit(event)">
         <input type="hidden" name="_subject" value="【Y.nail】新しいオーダーが届きました">
         <input type="hidden" name="_next" value="https://ynailshop.y-nail-2021.workers.dev/?sent=1">
 
@@ -2081,14 +2081,11 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">参考画像 <span style="font-weight:400; color:var(--gray-dark); font-size:11px;">（任意・複数可）</span></label>
-          <label class="form-file-label" for="form-file-input">
-            <span class="file-icon">📎</span>
-            <span class="file-text">クリックして画像を選択</span>
-            <span class="file-hint">JPG・PNG・HEIC など対応　／　1ファイル最大10MB</span>
-          </label>
-          <input type="file" id="form-file-input" name="参考画像" class="form-file-input" accept="image/*" multiple>
-          <div class="form-file-names" id="form-file-names"></div>
+          <label class="form-label">参考画像 <span style="font-weight:400; color:var(--gray-dark); font-size:11px;">（任意）</span></label>
+          <div style="padding:16px; background:var(--ivory); border:1px solid var(--gray-light); font-size:12px; color:var(--gray-dark); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; line-height:2;">
+            📎 参考画像は <strong>LINEにて送付</strong> をお願いします。<br>
+            フォーム送信後、LINEに画像を添付してご連絡ください。
+          </div>
         </div>
 
         <div class="form-group">
