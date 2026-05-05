@@ -1939,15 +1939,65 @@
 
         <!-- 来店希望日時（来店選択時のみ表示） -->
         <div id="visit-datetime" style="display:none;">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">来店希望日<span class="required">*</span></label>
-              <input type="date" name="来店希望日" class="form-input" id="visit-date-input">
+          <p style="font-size:11px; color:var(--gray-dark); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; margin-bottom:12px;">希望日時を最大3つお選びください</p>
+
+          <!-- 第1希望 -->
+          <p style="font-size:10px; letter-spacing:2px; color:var(--accent); font-family:'Georgia',serif; margin-bottom:6px;">第1希望 <span style="color:var(--accent);">*</span></p>
+          <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <input type="date" name="来店希望日（第1希望）" class="form-input" id="visit-date-input">
             </div>
-            <div class="form-group">
-              <label class="form-label">来店希望時間<span class="required">*</span></label>
-              <select name="来店希望時間" class="form-select" id="visit-time-input">
-                <option value="">選択してください</option>
+            <div class="form-group" style="margin-bottom:0;">
+              <select name="来店希望時間（第1希望）" class="form-select" id="visit-time-input">
+                <option value="">時間を選択</option>
+                <option>9:00（〜10:00）</option>
+                <option>10:00（〜11:00）</option>
+                <option>11:00（〜12:00）</option>
+                <option>12:00（〜13:00）</option>
+                <option>13:00（〜14:00）</option>
+                <option>14:00（〜15:00）</option>
+                <option>15:00（〜16:00）</option>
+                <option>16:00（〜17:00）</option>
+                <option>17:00（〜18:00）</option>
+                <option>18:00（〜19:00）</option>
+                <option>19:00（〜20:00）</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 第2希望 -->
+          <p style="font-size:10px; letter-spacing:2px; color:var(--gray-dark); font-family:'Georgia',serif; margin-bottom:6px;">第2希望 <span style="font-size:9px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; letter-spacing:0;">（任意）</span></p>
+          <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <input type="date" name="来店希望日（第2希望）" class="form-input">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <select name="来店希望時間（第2希望）" class="form-select">
+                <option value="">時間を選択</option>
+                <option>9:00（〜10:00）</option>
+                <option>10:00（〜11:00）</option>
+                <option>11:00（〜12:00）</option>
+                <option>12:00（〜13:00）</option>
+                <option>13:00（〜14:00）</option>
+                <option>14:00（〜15:00）</option>
+                <option>15:00（〜16:00）</option>
+                <option>16:00（〜17:00）</option>
+                <option>17:00（〜18:00）</option>
+                <option>18:00（〜19:00）</option>
+                <option>19:00（〜20:00）</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 第3希望 -->
+          <p style="font-size:10px; letter-spacing:2px; color:var(--gray-dark); font-family:'Georgia',serif; margin-bottom:6px;">第3希望 <span style="font-size:9px; font-family:'Hiragino Kaku Gothic ProN',sans-serif; letter-spacing:0;">（任意）</span></p>
+          <div class="form-row" style="margin-bottom:16px;">
+            <div class="form-group" style="margin-bottom:0;">
+              <input type="date" name="来店希望日（第3希望）" class="form-input">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <select name="来店希望時間（第3希望）" class="form-select">
+                <option value="">時間を選択</option>
                 <option>9:00（〜10:00）</option>
                 <option>10:00（〜11:00）</option>
                 <option>11:00（〜12:00）</option>
