@@ -1898,32 +1898,32 @@
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">お名前（フルネーム）<span class="required">*</span></label>
-            <input type="text" class="form-input" placeholder="例）山田 花子" required>
+            <input type="text" name="お名前" class="form-input" placeholder="例）山田 花子" required>
           </div>
           <div class="form-group">
             <label class="form-label">連絡先<span class="required">*</span></label>
-            <input type="text" class="form-input" placeholder="LINE ID / Instagram">
+            <input type="text" name="連絡先（LINE ID / Instagram）" class="form-input" placeholder="LINE ID / Instagram">
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">郵便番号<span class="required">*</span></label>
-          <input type="text" class="form-input" placeholder="例）810-0001" required>
+          <input type="text" name="郵便番号" class="form-input" placeholder="例）810-0001" required>
         </div>
 
         <div class="form-group">
           <label class="form-label">住所<span class="required">*</span></label>
-          <input type="text" class="form-input" placeholder="例）福岡県福岡市中央区○○ 1-2-3" required>
+          <input type="text" name="住所" class="form-input" placeholder="例）福岡県福岡市中央区○○ 1-2-3" required>
         </div>
 
         <div class="form-group">
           <label class="form-label">電話番号<span class="required">*</span></label>
-          <input type="tel" class="form-input" placeholder="例）090-1234-5678" required>
+          <input type="tel" name="電話番号" class="form-input" placeholder="例）090-1234-5678" required>
         </div>
 
         <div class="form-group">
           <label class="form-label">オーダー種別<span class="required">*</span></label>
-          <select class="form-select" required>
+          <select name="オーダー種別" class="form-select" required>
             <option value="">選択してください</option>
             <option>ベーシックネイルチップ</option>
             <option>特殊ネイルチップ</option>
@@ -2069,13 +2069,13 @@
 
         <div class="form-group">
           <label class="form-label">受取希望日 <span style="font-weight:400; color:var(--gray-dark); font-size:11px;">（任意）</span></label>
-          <input type="date" class="form-input" id="form-date-input">
+          <input type="date" name="受取希望日" class="form-input" id="form-date-input">
           <p style="margin-top:6px; font-size:10px; color:var(--gray-dark); font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif;">※ 通常制作期間は3週間〜1ヶ月です。成人式・ブライダルなど期日のある方はお早めにご相談ください。<br>※ 3週間以内の日付を選択するとお急ぎ便オプションが自動で表示されます。</p>
         </div>
 
         <div class="form-group">
           <label class="form-label">デザインイメージ・ご要望</label>
-          <textarea class="form-textarea" placeholder="推しのカラー・モチーフ、参考にしたいデザイン、ご希望などをご記入ください"></textarea>
+          <textarea name="デザインイメージ・ご要望" class="form-textarea" placeholder="推しのカラー・モチーフ、参考にしたいデザイン、ご希望などをご記入ください"></textarea>
         </div>
 
         <div class="form-group">
@@ -2085,7 +2085,7 @@
             <span class="file-text">クリックして画像を選択</span>
             <span class="file-hint">JPG・PNG・HEIC など対応　／　1ファイル最大10MB</span>
           </label>
-          <input type="file" id="form-file-input" class="form-file-input" accept="image/*" multiple>
+          <input type="file" id="form-file-input" name="参考画像" class="form-file-input" accept="image/*" multiple>
           <div class="form-file-names" id="form-file-names"></div>
         </div>
 
@@ -2093,25 +2093,25 @@
           <label class="form-label" style="margin-bottom:14px;">爪のサイズ <span style="font-weight:400; color:var(--gray-dark); font-size:11px;">（分かる場合のみ）</span></label>
           <span class="size-hand-label">右手 — RIGHT HAND</span>
           <div class="size-grid" style="margin-bottom:12px;">
-            <div class="size-input-wrap"><div class="size-finger">親指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">人差指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">中指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">薬指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">小指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">親指</div><input type="text" name="右手_親指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">人差指</div><input type="text" name="右手_人差指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">中指</div><input type="text" name="右手_中指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">薬指</div><input type="text" name="右手_薬指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">小指</div><input type="text" name="右手_小指" class="size-input" maxlength="2" placeholder="—"></div>
           </div>
           <span class="size-hand-label">左手 — LEFT HAND</span>
           <div class="size-grid">
-            <div class="size-input-wrap"><div class="size-finger">親指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">人差指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">中指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">薬指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
-            <div class="size-input-wrap"><div class="size-finger">小指</div><input type="text" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">親指</div><input type="text" name="左手_親指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">人差指</div><input type="text" name="左手_人差指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">中指</div><input type="text" name="左手_中指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">薬指</div><input type="text" name="左手_薬指" class="size-input" maxlength="2" placeholder="—"></div>
+            <div class="size-input-wrap"><div class="size-finger">小指</div><input type="text" name="左手_小指" class="size-input" maxlength="2" placeholder="—"></div>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">その他・備考</label>
-          <textarea class="form-textarea" style="height:80px;" placeholder="使用日、その他ご要望など"></textarea>
+          <textarea name="その他・備考" class="form-textarea" style="height:80px;" placeholder="使用日、その他ご要望など"></textarea>
         </div>
 
         <div class="price-summary" id="price-summary" style="display:none;">
