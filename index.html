@@ -1933,16 +1933,36 @@
 <section class="order-section" id="order">
   <div class="section-inner">
     <div class="section-head">
-      <span class="section-en">ORDER FORM</span>
-      <h2 class="section-title">オーダーフォーム</h2>
+      <span class="section-en">ORDER</span>
+      <h2 class="section-title">オーダーする</h2>
       <div class="section-line"></div>
     </div>
     <div class="order-wrap">
-      <p class="form-note">
-        以下のフォームにご記入いただくか、<br>
-        LINEからご連絡ください。
-      </p>
+      <p class="form-note">ご希望の方法でお問い合わせください。</p>
 
+      <!-- 選択ボタン -->
+      <div style="display:flex; gap:12px; margin-bottom:36px;">
+        <button id="btn-line" onclick="switchOrder('line')" style="flex:1; padding:16px 8px; font-size:13px; letter-spacing:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; border:1.5px solid #06C755; background:#06C755; color:#fff; border-radius:8px; cursor:pointer; transition:all 0.25s;">
+          📱 LINEでオーダー
+        </button>
+        <button id="btn-form" onclick="switchOrder('form')" style="flex:1; padding:16px 8px; font-size:13px; letter-spacing:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; border:1.5px solid var(--black); background:#fff; color:var(--black); border-radius:8px; cursor:pointer; transition:all 0.25s;">
+          📝 フォームでオーダー
+        </button>
+      </div>
+
+      <!-- LINE セクション -->
+      <div id="order-line" style="text-align:center; padding:40px 0;">
+        <p style="font-size:14px; color:var(--gray-dark); line-height:2; margin-bottom:28px;">LINEからお気軽にご相談ください。<br>テンプレートをコピーして送るだけで簡単です。</p>
+        <button onclick="openLineModal()" class="line-btn" style="border:none; cursor:pointer;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
+          </svg>
+          LINEでオーダーする
+        </button>
+      </div>
+
+      <!-- フォーム セクション -->
+      <div id="order-form" style="display:none;">
       <form action="https://formspree.io/f/xqenqqgq" method="POST" onsubmit="handleSubmit(event)">
         <input type="hidden" name="_subject" value="【Y.nail】新しいオーダーが届きました">
         <input type="hidden" name="_next" value="https://ynailshop.y-nail-2021.workers.dev/?sent=1">
@@ -1953,8 +1973,8 @@
             <input type="text" name="お名前" class="form-input" placeholder="例）山田 花子" required>
           </div>
           <div class="form-group">
-            <label class="form-label">連絡先<span class="required">*</span></label>
-            <input type="text" name="連絡先（LINE ID / Instagram）" class="form-input" placeholder="LINE ID / Instagram">
+            <label class="form-label">メールアドレス<span class="required">*</span></label>
+            <input type="email" name="メールアドレス" class="form-input" placeholder="例）example@mail.com" required>
           </div>
         </div>
 
@@ -2288,16 +2308,8 @@
           ※ 制作したネイルチップの返品・交換はいかなる場合においても対応いたしかねます。必ずサイズをご確認のうえご注文ください。
         </p>
       </form>
+      </div><!-- /order-form -->
 
-      <div style="text-align:center; margin-top:48px; padding-top:40px; border-top:1px solid var(--gray-mid);">
-        <p style="font-size:11px; color:var(--gray-dark); letter-spacing:2px; font-family:'Georgia',serif; margin-bottom:20px;">OR CONTACT VIA LINE</p>
-        <button onclick="openLineModal()" class="line-btn" style="border:none; cursor:pointer;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
-          </svg>
-          LINEでオーダーする
-        </button>
-      </div>
     </div>
   </div>
 </section>
@@ -2684,6 +2696,32 @@
   });
 
   // LINEテンプレートモーダル
+  function switchOrder(type) {
+    const lineSection = document.getElementById('order-line');
+    const formSection = document.getElementById('order-form');
+    const btnLine = document.getElementById('btn-line');
+    const btnForm = document.getElementById('btn-form');
+    if (type === 'line') {
+      lineSection.style.display = 'block';
+      formSection.style.display = 'none';
+      btnLine.style.background = '#06C755';
+      btnLine.style.color = '#fff';
+      btnLine.style.borderColor = '#06C755';
+      btnForm.style.background = '#fff';
+      btnForm.style.color = 'var(--black)';
+      btnForm.style.borderColor = 'var(--black)';
+    } else {
+      lineSection.style.display = 'none';
+      formSection.style.display = 'block';
+      btnForm.style.background = 'var(--black)';
+      btnForm.style.color = '#fff';
+      btnForm.style.borderColor = 'var(--black)';
+      btnLine.style.background = '#fff';
+      btnLine.style.color = '#06C755';
+      btnLine.style.borderColor = '#06C755';
+    }
+  }
+
   function openLineModal() {
     const modal = document.getElementById('line-modal');
     modal.style.display = 'flex';
