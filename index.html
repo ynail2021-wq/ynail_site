@@ -1549,6 +1549,31 @@
 </head>
 <body>
 
+<!-- ── LINEテンプレートモーダル ── -->
+<div id="line-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="background:#fff; border-radius:16px; padding:28px 24px; max-width:420px; width:100%; position:relative;">
+    <button onclick="closeLineModal()" style="position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; cursor:pointer; color:#999;">×</button>
+    <p style="font-size:11px; letter-spacing:3px; color:var(--accent); font-family:'Georgia',serif; margin-bottom:8px;">LINE TEMPLATE</p>
+    <p style="font-size:14px; font-weight:bold; margin-bottom:16px;">以下をコピーしてLINEに貼り付けてください</p>
+    <div id="line-template" style="background:#f9f3e8; border-radius:10px; padding:16px; font-size:13px; line-height:2; white-space:pre-wrap; border:1px solid #e8d9c0; margin-bottom:16px;">【Y.nail お問い合わせ】
+
+お名前：
+お問い合わせ内容：
+ご希望のメニュー：
+　□ オーダーネイルチップ（郵送）
+　□ ネイルサロン来店
+　□ ネイルシール
+　□ その他
+
+その他ご要望：</div>
+    <button onclick="copyTemplate()" id="copy-btn" style="width:100%; padding:12px; background:var(--accent); color:#fff; border:none; border-radius:8px; font-size:14px; letter-spacing:2px; cursor:pointer; margin-bottom:10px;">📋 テンプレートをコピー</button>
+    <a href="https://lin.ee/xCpyDq8" target="_blank" rel="noopener" onclick="closeLineModal()" style="display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:12px; background:#06C755; color:#fff; border-radius:8px; font-size:14px; letter-spacing:2px; text-decoration:none; box-sizing:border-box;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/></svg>
+      LINEを開く
+    </a>
+  </div>
+</div>
+
 <!-- ── ヘッダー ── -->
 <header>
   <a href="#" class="header-logo">
@@ -1894,12 +1919,12 @@
         ※ 計測チップは<strong>任意</strong>です。<br>
         ご自身のサイズが分かる場合はそのままご注文いただけます。
       </p>
-      <a href="https://lin.ee/xCpyDq8" class="line-btn" target="_blank" rel="noopener">
+      <button onclick="openLineModal()" class="line-btn" style="border:none; cursor:pointer;">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
           <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
         </svg>
         計測チップをLINEで申し込む（任意）
-      </a>
+      </button>
     </div>
   </div>
 </section>
@@ -2266,12 +2291,12 @@
 
       <div style="text-align:center; margin-top:48px; padding-top:40px; border-top:1px solid var(--gray-mid);">
         <p style="font-size:11px; color:var(--gray-dark); letter-spacing:2px; font-family:'Georgia',serif; margin-bottom:20px;">OR CONTACT VIA LINE</p>
-        <a href="https://lin.ee/xCpyDq8" class="line-btn" target="_blank" rel="noopener">
+        <button onclick="openLineModal()" class="line-btn" style="border:none; cursor:pointer;">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
             <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
           </svg>
           LINEでオーダーする
-        </a>
+        </button>
       </div>
     </div>
   </div>
@@ -2656,6 +2681,34 @@
 
   document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => {
     observer.observe(el);
+  });
+
+  // LINEテンプレートモーダル
+  function openLineModal() {
+    const modal = document.getElementById('line-modal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLineModal() {
+    const modal = document.getElementById('line-modal');
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  function copyTemplate() {
+    const text = document.getElementById('line-template').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copy-btn');
+      btn.textContent = '✅ コピーしました！';
+      btn.style.background = '#888';
+      setTimeout(() => {
+        btn.textContent = '📋 テンプレートをコピー';
+        btn.style.background = 'var(--accent)';
+      }, 2000);
+    });
+  }
+  // モーダル外クリックで閉じる
+  document.getElementById('line-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeLineModal();
   });
 </script>
 
