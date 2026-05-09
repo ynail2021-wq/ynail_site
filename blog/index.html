@@ -183,17 +183,17 @@
 </div>
 
 <div class="category-nav">
-  <a href="/blog/" class="cat-tag active">すべて</a>
-  <a href="#" class="cat-tag">お役立ち情報</a>
-  <a href="#" class="cat-tag">新作デザイン</a>
-  <a href="#" class="cat-tag">推し活ネイル</a>
-  <a href="#" class="cat-tag">成人式・ブライダル</a>
+  <button class="cat-tag active" data-cat="すべて" onclick="filterCat(this)">すべて</button>
+  <button class="cat-tag" data-cat="お役立ち情報" onclick="filterCat(this)">お役立ち情報</button>
+  <button class="cat-tag" data-cat="新作デザイン" onclick="filterCat(this)">新作デザイン</button>
+  <button class="cat-tag" data-cat="推し活ネイル" onclick="filterCat(this)">推し活ネイル</button>
+  <button class="cat-tag" data-cat="成人式・ブライダル" onclick="filterCat(this)">成人式・ブライダル</button>
 </div>
 
-<div class="blog-list">
+<div class="blog-list" id="blog-list">
 
   <!-- 記事2 -->
-  <a href="/blog/posts/nail-chip-howto.html" class="blog-card">
+  <a href="/blog/posts/nail-chip-howto.html" class="blog-card" data-cat="お役立ち情報">
     <div class="blog-card-img">
       <img src="/blog/howto-main.png" alt="ネイルチップの付け方・外し方" style="width:100%; height:100%; object-fit:cover;">
     </div>
@@ -208,7 +208,7 @@
   </a>
 
   <!-- 記事1 -->
-  <a href="/blog/posts/nail-chip-size-guide.html" class="blog-card">
+  <a href="/blog/posts/nail-chip-size-guide.html" class="blog-card" data-cat="お役立ち情報">
     <div class="blog-card-img">
       <img src="/blog/size-guide-main.png" alt="ネイルチップのサイズの測り方" style="width:100%; height:100%; object-fit:cover;">
     </div>
@@ -228,5 +228,15 @@
   <p><a href="/">Y.nail</a> &copy; 2024 All Rights Reserved.</p>
 </footer>
 
+<script>
+  function filterCat(el) {
+    const cat = el.dataset.cat;
+    document.querySelectorAll('.cat-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.blog-card').forEach(card => {
+      card.style.display = (cat === 'すべて' || card.dataset.cat === cat) ? 'flex' : 'none';
+    });
+  }
+</script>
 </body>
 </html>
