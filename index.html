@@ -1943,24 +1943,19 @@
 
       <!-- 選択ボタン -->
       <div style="display:flex; gap:12px; margin-bottom:36px;">
-        <button id="btn-line" onclick="switchOrder('line')" style="flex:1; padding:16px 8px; font-size:13px; letter-spacing:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; border:1.5px solid #06C755; background:#06C755; color:#fff; border-radius:8px; cursor:pointer; transition:all 0.25s;">
-          📱 LINEでオーダー
+        <button onclick="openLineModal()" class="line-btn" style="flex:1; padding:16px 8px; font-size:13px; letter-spacing:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; border:none; border-radius:8px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
+          </svg>
+          LINEでオーダー
         </button>
         <button id="btn-form" onclick="switchOrder('form')" style="flex:1; padding:16px 8px; font-size:13px; letter-spacing:2px; font-family:'Hiragino Kaku Gothic ProN','Yu Gothic',sans-serif; border:1.5px solid var(--black); background:#fff; color:var(--black); border-radius:8px; cursor:pointer; transition:all 0.25s;">
           📝 フォームでオーダー
         </button>
       </div>
 
-      <!-- LINE セクション -->
-      <div id="order-line" style="text-align:center; padding:40px 0;">
-        <p style="font-size:14px; color:var(--gray-dark); line-height:2; margin-bottom:28px;">LINEからお気軽にご相談ください。<br>テンプレートをコピーして送るだけで簡単です。</p>
-        <button onclick="openLineModal()" class="line-btn" style="border:none; cursor:pointer;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C6.48 2 2 6.15 2 11.21c0 4.56 3.55 8.37 8.34 9.07.32.07.77.21.88.48.1.25.07.63.03.88l-.14.85c-.04.25-.2.97.85.53 1.05-.44 5.65-3.33 7.71-5.7C21.1 15.34 22 13.36 22 11.21 22 6.15 17.52 2 12 2z"/>
-          </svg>
-          LINEでオーダーする
-        </button>
-      </div>
+      <!-- フォーム セクション（デフォルト非表示） -->
+      <div id="order-form-toggle" style="display:none;">
 
       <!-- フォーム セクション -->
       <div id="order-form" style="display:none;">
@@ -2310,7 +2305,7 @@
           ※ 制作したネイルチップの返品・交換はいかなる場合においても対応いたしかねます。必ずサイズをご確認のうえご注文ください。
         </p>
       </form>
-      </div><!-- /order-form -->
+      </div><!-- /order-form-toggle -->
 
     </div>
   </div>
@@ -2699,28 +2694,18 @@
 
   // LINEテンプレートモーダル
   function switchOrder(type) {
-    const lineSection = document.getElementById('order-line');
-    const formSection = document.getElementById('order-form');
-    const btnLine = document.getElementById('btn-line');
+    const formSection = document.getElementById('order-form-toggle');
     const btnForm = document.getElementById('btn-form');
-    if (type === 'line') {
-      lineSection.style.display = 'block';
-      formSection.style.display = 'none';
-      btnLine.style.background = '#06C755';
-      btnLine.style.color = '#fff';
-      btnLine.style.borderColor = '#06C755';
-      btnForm.style.background = '#fff';
-      btnForm.style.color = 'var(--black)';
-      btnForm.style.borderColor = 'var(--black)';
-    } else {
-      lineSection.style.display = 'none';
+    if (type === 'form') {
       formSection.style.display = 'block';
       btnForm.style.background = 'var(--black)';
       btnForm.style.color = '#fff';
       btnForm.style.borderColor = 'var(--black)';
-      btnLine.style.background = '#fff';
-      btnLine.style.color = '#06C755';
-      btnLine.style.borderColor = '#06C755';
+    } else {
+      formSection.style.display = 'none';
+      btnForm.style.background = '#fff';
+      btnForm.style.color = 'var(--black)';
+      btnForm.style.borderColor = 'var(--black)';
     }
   }
 
